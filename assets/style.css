@@ -1,0 +1,53 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+body {
+    padding: 0;
+    margin: 30px; 
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    
+}
+
+#container {
+    width: 500px;
+    max-width: 80%; 
+    text-align: center;
+}
+
+#question {
+    font-size: 25px;
+}
+
+.answer-list {
+    display: grid; 
+    gap: 10px; 
+    margin: 20px 0; 
+}
+
+.btn {
+    font-size: 20px;
+    background-color: khaki;
+    padding: 10px; 
+    box-shadow: 1px 2px grey;
+}
+
+.btn:hover {
+    background-color: moccasin;
+}
+
+.btn:active {
+    background-color: moccasin; 
+    filter:brightness(80%); 
+    outline: none; 
+}
+
+.hide {
+    display: none; 
+}
+
+
+

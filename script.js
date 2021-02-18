@@ -7,11 +7,14 @@ const answerButtons = document.querySelector("#answer-btn-container")
 const Result = document.querySelector("#rightOrWrong"); 
 const endScreen = document.querySelector("#end-screen-container"); 
 const scoreOnEndScreen = document.querySelector("#final-score"); 
+const timerEl = document.querySelector("#countdown"); 
 
 var currentQuestion; 
 var currentQuestionIndex; 
 
-var finalScore = 0; 
+var score = 0; 
+var timeLeft = 59; 
+
 
 
 //Array of Questions w/ Answers
@@ -70,11 +73,26 @@ const questions = [
 startButton.addEventListener("click", startQuiz); 
 
 function startQuiz() {  
+    countdown(); 
     introScreen.classList.add("hide"); 
     currentQuestion = questions.sort();  
     currentQuestionIndex = 0; 
     questionContainer.classList.remove("hide"); 
     setNextQuestion(); 
+}
+
+function countdown() {
+    var timeInterval = setInterval(function () {
+        if (timeLeft > 1) {
+            timerEl.textContent = "Time Left: " + timeLeft + " seconds";
+            timeLeft--;
+        } else {
+            timerEl.textContent = "Time Left: 0 seconds"; 
+            showEndScreen(); 
+            clearInterval(timeInterval); 
+
+        }
+    }, 1000); 
 }
 
 function setNextQuestion() {
@@ -104,10 +122,10 @@ function selectAnswer(event) {
     const selectedButton = event.target; 
     if (selectedButton.dataset.correct) {
         Result.innerHTML = "correct!"; 
-        finalScore = finalScore + 10; 
+        score = score + 10; 
     } else {
-        Result.innerHTML = "wrong!"; 
-        finalScore = finalScore - 10; 
+        timeLeft = timeLeft - 10; 
+        Result.innerHTML = "wrong!";
     }
     currentQuestionIndex++;
     setNextQuestion();
@@ -121,10 +139,11 @@ function resetState() {
 }
 
 function showEndScreen () {
+    timerEl.classList.add("hide"); 
     questionContainer.classList.add("hide");
     endScreen.classList.remove("hide"); 
     const showScore = document.createElement("p");
-    showScore.innerHTML = "Your final score is " + finalScore; 
+    showScore.innerHTML = "Your final score is " + (score + timeLeft); 
     scoreOnEndScreen.appendChild(showScore); 
 
 }

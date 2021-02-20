@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="header-container">
-        <div> View High Scores</div>
+        <a href=# id="view-high-scores"> View High Scores</a>
         <div id="countdown">Time Left: 60 seconds</div>
     </div>
     <main> 
@@ -33,6 +33,19 @@
         <div id="end-screen-container" class="hide">
             <h1>All done!</h1>
             <div id="final-score"> </div>
+            <form id="enter-initials-container" class="submit-form" method="POST"> 
+                <label for="initials">Enter initials:</label>
+                <input type="text" name="enter-initials" id="enter-initials" />
+                <button id="submit-btn" class="btn">Submit</button>
+            </form>
+        </div>
+        <div id="highscores-page" class="hide"> 
+            <h1>Highscores</h1>
+            <ol id="entered-scores"></ol>
+            <div class = "button-container">
+                <button id="go-back-btn" class="btn">Go Back</button>
+                <button id="clear-highscores-btn" class="btn">Clear Highscores</button>
+            </div> 
         </div>
     </div>
    </main>

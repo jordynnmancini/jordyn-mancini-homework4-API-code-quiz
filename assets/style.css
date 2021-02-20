@@ -20,6 +20,10 @@ main {
    justify-content: space-between;
 }
 
+#view-high-scores {
+    color: black;
+}
+
 #container {
     width: 500px;
     max-width: 80%; 
@@ -37,7 +41,7 @@ main {
 }
 
 .btn {
-    font-size: 20px;
+    font-size: 15px;
     background-color: khaki;
     padding: 10px; 
     box-shadow: 1px 2px grey;
@@ -56,4 +60,14 @@ main {
 .hide {
     display: none; 
 }
+
+.submit-form, .submit-form input {
+    font-size: 15px;
+}
+
  
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
